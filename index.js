@@ -2,7 +2,7 @@ import express from 'express'
 import dotenv from 'dotenv'
 import cors from 'cors'
 import router from './Routes/recipeRoutes.js'
-
+import connectDB from './Database/dbConfig.js'
 //dotenv config
 dotenv.config()
 
@@ -14,6 +14,9 @@ app.use(cors())
 
 //Initializing default middleware to read req.body
 app.use(express.json())
+
+// Establishing DB Connection
+connectDB()
 
 //default Route
 
